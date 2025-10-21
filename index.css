@@ -1,0 +1,121 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: #ffffff;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+  }
+  
+  .tabs-container {
+    display: flex;
+    gap: 5px;
+    padding: 20px;
+    align-items: flex-end;
+  }
+  
+  .tab {
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 12px 12px 0 0;
+    background: radial-gradient(ellipse at 50% 60%, rgba(202.1566523605, 205.9613733906, 209.3433476395, 0.95) 0%, rgba(188.4763948498, 193.2660944206, 197.5236051502, 0.92) 20%, rgba(161.1158798283, 167.8755364807, 173.8841201717, 0.9) 40%, rgba(133.7553648069, 142.4849785408, 150.2446351931, 0.95) 65%, rgb(84.3605150215, 91.3905579399, 97.6394849785) 85%, rgb(72.5407725322, 78.5858369099, 83.9592274678) 100%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2), inset 0 2px 6px rgba(72.5407725322, 78.5858369099, 83.9592274678, 0.5), inset 0 -2px 4px rgba(255, 255, 255, 0.4), inset -2px 0 4px rgba(72.5407725322, 78.5858369099, 83.9592274678, 0.3), inset 2px 0 4px rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 15px;
+    font-weight: 700;
+    color: #212529;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .tab::before {
+    content: "";
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    right: 15%;
+    height: 40%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.3) 70%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 50%;
+    filter: blur(2px);
+    pointer-events: none;
+  }
+  .tab::after {
+    content: "";
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    right: 20%;
+    bottom: 20%;
+    background: radial-gradient(ellipse at 50% 60%, rgba(255, 255, 255, 0.6) 0%, rgba(202.1566523605, 205.9613733906, 209.3433476395, 0.4) 25%, rgba(188.4763948498, 193.2660944206, 197.5236051502, 0.25) 50%, rgba(161.1158798283, 167.8755364807, 173.8841201717, 0.1) 75%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 50%;
+    filter: blur(3px);
+    pointer-events: none;
+  }
+  
+  /* Hover or active: switch to blue water-drop */
+  .tab:hover:not(.active),
+  .tab.active {
+    /* keep the tab's original width/height (small-tab will keep its smaller size) */
+    border: none;
+    border-radius: 8px;
+    background: radial-gradient(ellipse at 50% 60%, rgba(180, 215, 240, 0.95) 0%, rgba(150, 200, 235, 0.92) 20%, rgba(110, 170, 220, 0.9) 40%, rgba(75, 140, 200, 0.95) 65%, rgb(50, 110, 170) 85%, rgb(40, 90, 150) 100%);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35), 0 5px 10px rgba(0, 0, 0, 0.25), inset 0 4px 15px rgba(0, 50, 100, 0.5), inset 0 -3px 8px rgba(255, 255, 255, 0.4), inset -3px 0 8px rgba(0, 50, 100, 0.3), inset 3px 0 8px rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+    border-top: 2px solid rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  }
+  .tab:hover:not(.active)::before,
+  .tab.active::before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    right: 15%;
+    height: 35%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.3) 70%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 50%;
+    filter: blur(4px);
+    pointer-events: none;
+    display: block;
+  }
+  .tab:hover:not(.active)::after,
+  .tab.active::after {
+    content: "";
+    position: absolute;
+    top: 25%;
+    left: 20%;
+    right: 20%;
+    bottom: 15%;
+    background: radial-gradient(ellipse at 50% 70%, rgba(255, 255, 255, 0.6) 0%, rgba(230, 245, 255, 0.4) 25%, rgba(200, 235, 255, 0.25) 50%, rgba(180, 220, 245, 0.1) 75%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 50%;
+    filter: blur(6px);
+    pointer-events: none;
+    display: block;
+  }
+  
+  .small-tab {
+    width: 120px;
+    height: 40px;
+    font-size: 13px;
+    border-radius: 10px 10px 0 0;
+    padding: 0 8px;
+  }/*# sourceMappingURL=index.css.map */
